@@ -1,2 +1,2 @@
-# Programa-oAvan-ada_Lista_Ponteiros
-Lista de Ponteiros da disciplina de PA
+# Programacao Avancada_Lista_Ponteiros
+Discente: KALINE SOUZA DOS SANTOS
