@@ -1,2 +1,5 @@
-# Programacao Avancada_Lista_Ponteiros
-Discente: KALINE SOUZA DOS SANTOS
+# Programacao_Avancada_Lista_Ponteiros
+
+DUPLA: 
+JEREMIAS BEZERRA SOBRINHO
+KALINE SOUZA DOS SANTOS
