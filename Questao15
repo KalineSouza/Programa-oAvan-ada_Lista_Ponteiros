@@ -33,7 +33,6 @@ void exibir(int *primeiro, int n) {
    }
 }
 
-
 int main() {
     int n, i;
     float *x, aux;
