@@ -1,0 +1,5 @@
+Resposta:
+p = mat + 1; // expressão válida, pois o vetor mat recebe um incremento de posição.
+p = mat++; // expressão não é válida, pois não se pode incrementar o valor no vetor.
+p = ++mat; // expressão não é válida, pois não se pode incrementar o valor no vetor.
+x = (*mat)++; // expressão válida, pois o array mat está sendo tratado como ponteiro.
