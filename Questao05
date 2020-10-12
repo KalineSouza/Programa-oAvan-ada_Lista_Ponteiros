@@ -1,0 +1,6 @@
+Resposta:
+Na primeira interação (i é igual a 0; vet[0] é igual a 1.1; &vet[0] será o endereço do vetor na posição zero; f+0 será igual ao endereço do vetor na posição zero, pois o mesmo foi atribuído a f antes do laço de repetição.
+Na segunda interação (i é igual a 1; vet[1] é igual a 2.2; &vet[1] será o endereço do vetor na posição um; f+1 será igual ao endereço do vetor na posição um, pois o mesmo foi atribuído a f antes do laço de repetição.
+Na terceira interação (i é igual a 2; vet[2] é igual a 3.3; &vet[2] será o endereço do vetor na posição dois; f+2 será igual ao endereço do vetor na posição dois, pois o mesmo foi atribuído a f antes do laço de repetição.
+Na quarta interação (i é igual a 3; vet[3] é igual a 4.4; &vet[3] será o endereço do vetor na posição três; f+3 será igual ao endereço do vetor na posição três, pois o mesmo foi atribuído a f antes do laço de repetição.
+Na quinta interação (i é igual a 4; vet[4] é igual a 5.5; &vet[4] será o endereço do vetor na posição quatro; f+4 será igual ao endereço do vetor na posição quatro, pois o mesmo foi atribuído a f antes do laço de repetição.
