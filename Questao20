@@ -1,3 +1,6 @@
+// programa-exemplo com a biblioteca libGC
+
+
 #include "gc.h"
 #include <stdio.h>
 #include <stdlib.h>
