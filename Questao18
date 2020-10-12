@@ -1,92 +1,109 @@
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
 
-void multiplicacaoMatricial(int **ptrC, int **ptrA, int **ptrB, int LinhasA, int  ColunasA, int ColunasB){
-    int i,j,k;
-    int aux;
-
-    for(i=0; i < LinhasA; i++){
-        for(j=0; j < ColunasB;j++){
-            aux = 0;
-            for(k=0; k < ColunasA; k++){
-                aux = aux+ ptrA[i][k]*ptrB[k][j];
-            }
-            ptrC[i][j] = aux;
-
-        }
-    }
-}
-
-void Matriz (int **ptrC, int nl, int nc){
-    int i,j;
-    for(i=0;i<nl; i++){
-        for(j=0;j<nc;j++){
-            printf("%d  ", ptrC[i][j]);
-        }
-        printf("\n");
-    }
-}
+void enterData(int PrimeiraMatriz[][10], int SegundaMatriz[][10], int PrimeiraLinha, int PrimeiraColuna, int SegundaLinha, int SegundaColuna);
+void MultiplicarMatriz(int PrimeiraMatriz[][10], int SegundaMatriz[][10], int multResult[][10], int PrimeiraLinha, int PrimeiraColuna, int SegundaLinha, int SegundaColuna);
+void display(int mult[][10], int PrimeiraLinha, int SegundaColuna);
 
 int main()
 {
-    void (*PTR)(int*, int*,int*, int, int, int);
-    PTR = &multiplicacaoMatricial;
-    int i,j,k,LinhasA, ColunasA,ColunasB;
-    int **ptrA, **ptrB, **ptrC;
+	int PrimeiraMatriz[10][10], SegundaMatriz[10][10], mult[10][10], PrimeiraLinha, PrimeiraColuna, SegundaLinha, SegundaColuna, i, j, k;
 
-    printf("Informe o numero de linhas da Matriz A: ");
-    scanf("%d", &LinhasA);
-    printf("Informe o numero de colunas da Matriz A: ");
-    scanf("%d", & ColunasA);
-    printf("Informe o numero de colunas da Matriz B: ");
-    scanf("%d", &ColunasB);
+	printf("PRIMEIRA MATRIZ   \n");
+	printf("Numero de linhas: ");
+	scanf("%d", &PrimeiraLinha);
+	printf("Numero de colunas: ");
+	scanf("%d", &PrimeiraColuna);
 
-    ptrA = (int**)malloc(LinhasA*sizeof(int*));
+    printf("\nSEGUNDA MATRIZ   \n");
+	printf("Numero de linhas: ");
+	scanf("%d", &SegundaLinha);
+    printf("Numero de colunas: ");
+	scanf("%d", &SegundaColuna);
 
-    for(i=0; i<LinhasA; i++){
-        ptrA[i]=(int*)malloc( ColunasA*sizeof(int));
-    }
+	// Garante que existe a multiplicidade entre as matrizes
+	while (PrimeiraColuna != SegundaLinha)
+	{
+		printf("Erro! Verifique se a multiplicaçao eh possivel.\n");
+		printf("Entre com a linha e a coluna da primeira matriz: ");
+		scanf("%d%d", &PrimeiraLinha, &PrimeiraColuna);
+		printf("Entre com a linha e a coluna da segunda matriz: ");
+		scanf("%d%d", &SegundaLinha, &SegundaColuna);
+	}
 
-    ptrB = (int**)malloc( ColunasA*sizeof(int*));
-    for(i=0; i<LinhasA; i++){
-        ptrB[i]=(int*)malloc(ColunasB*sizeof(int));
-    }
+        // Matriz Data
+        enterData(PrimeiraMatriz, SegundaMatriz, PrimeiraLinha, PrimeiraColuna, SegundaLinha, SegundaColuna);
 
-    ptrC = (int**)malloc(LinhasA*sizeof(int*));
-    for(i=0; i<LinhasA; i++){
-        ptrC[i]=(int*)malloc(ColunasB*sizeof(int));
-    }
+        // Multipliciar duas matrizes
+        MultiplicarMatriz(PrimeiraMatriz, SegundaMatriz, mult, PrimeiraLinha, PrimeiraColuna, SegundaLinha, SegundaColuna);
 
-    for(i=0;i<LinhasA;i++){
-        for(j=0;j< ColunasA;j++){
-            ptrA[i][j] = rand()%10;
-        }
-    }
+        // Função exibir matriz
+        display(mult, PrimeiraLinha, SegundaColuna);
 
-    for(i=0;i< ColunasA;i++){
-        for(j=0;j<ColunasB;j++){
-            ptrB[i][j] = rand()%10;
-        }
-    }
+	return 0;
+}
 
-    (*PTR)(ptrC, ptrA, ptrB, LinhasA,  ColunasA, ColunasB);
+void enterData(int PrimeiraMatriz[][10], int SegundaMatriz[][10], int PrimeiraLinha, int PrimeiraColuna, int SegundaLinha, int SegundaColuna)
+{
+	int i, j;
+	printf("\nEntre com os elementos da Matriz 1:\n");
+	for(i = 0; i < PrimeiraLinha; ++i)
+	{
+		for(j = 0; j < PrimeiraColuna; ++j)
+		{
+			printf("Entre com o elemento a%d%d: ", i + 1, j + 1);
+			scanf("%d", &PrimeiraMatriz[i][j]);
+		}
+	}
 
-    Matriz(ptrA, LinhasA, ColunasA);
-    printf("\n");
-    Matriz(ptrB,  ColunasA,ColunasB);
-    printf("\n");
-    Matriz(ptrC, LinhasA,ColunasB);
+	printf("\nEntre com os elementos da Matriz 2:\n");
+	for(i = 0; i < SegundaLinha; ++i)
+	{
+		for(j = 0; j < SegundaColuna; ++j)
+		{
+			printf("Entre com o elemento b%d%d: ", i + 1, j + 1);
+			scanf("%d", &SegundaMatriz[i][j]);
+		}
+	}
+}
 
-    for(i=0; i<LinhasA; i++){
-      free(ptrA[i]);
-      free(ptrB[i]);
-      free(ptrC[i]);
-    }
+void MultiplicarMatriz(int PrimeiraMatriz[][10], int SegundaMatriz[][10], int mult[][10], int PrimeiraLinha, int PrimeiraColuna, int SegundaLinha, int SegundaColuna)
+{
+	int i, j, k;
 
-    free(ptrA);
-    free(ptrB);
-    free(ptrC);
+	// Iniciando os elementos da Matriz resultante em zero.
+	for(i = 0; i < PrimeiraLinha; ++i)
+	{
+		for(j = 0; j < SegundaColuna; ++j)
+		{
+			mult[i][j] = 0;
+		}
+	}
 
-    return 0;
+	// Multiplicação entre PrimeiraMatriz e SegundaMatriz
+	for(i = 0; i < PrimeiraLinha; ++i)
+	{
+		for(j = 0; j < SegundaColuna; ++j)
+		{
+			for(k=0; k<PrimeiraColuna; ++k)
+			{
+				mult[i][j] += PrimeiraMatriz[i][k] * SegundaMatriz[k][j];
+			}
+		}
+	}
+}
+
+void display(int mult[][10], int PrimeiraLinha, int SegundaColuna)
+{
+	int i, j;
+	printf("\Matriz resultante:\n");
+	for(i = 0; i < PrimeiraLinha; ++i)
+	{
+		for(j = 0; j < SegundaColuna; ++j)
+		{
+			printf("%d  ", mult[i][j]);
+			if(j == SegundaColuna - 1)
+				printf("\n\n");
+		}
+	}
 }
