@@ -1,6 +1,8 @@
+// programa-exemplo demonstrando como usar a biblioteca libGC
+
 #include <assert.h>
 #include <stdio.h>
-#include <GC/gc.h>
+#include <gc/gc.h>
 
 int main()
 {
