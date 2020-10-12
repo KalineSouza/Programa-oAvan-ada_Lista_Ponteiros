@@ -1,0 +1,4 @@
+Resposta:
+(a)
+(d) // porque a ordem de precedência começa nos operadores * e & não identificam o tratamento prioritário. 
+(g) // o ponteiro tende a aceitar localizações de valores atribuídos para as variáveis.
