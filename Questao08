@@ -1,0 +1,22 @@
+Resposta:
+
+#include <stdlib.h>
+#include <stdio.h>
+
+// O programa abaixo imprime os valores de cada variável que está dentro do vetor incrementando 1 no ponteiro, onde aponta para o vetor.
+int main(){
+      int vet[] = {4,9,13};
+      int i;
+      for(i=0;i<3;i++){
+        printf("%d ",*(vet+i)); //
+      }
+    }
+
+// O programa abaixo imprime os endereços de memória de cada uma das variáveis dentro do vetor. Usando um for para checar todas as variáveis do vetor.
+int main(){
+  int vet[] = {4,9,13};
+  int i;
+  for(i=0;i<3;i++){
+    printf("%X ",vet+i);
+  }
+}
