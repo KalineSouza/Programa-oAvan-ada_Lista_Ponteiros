@@ -1,0 +1,27 @@
+Resposta:
+
+ /*Um ponteiro para uma função é um ponteiro que, diferente de um ponteiro convencional ( o qual aponta para um endereço de memória),
+ irá apontar para uma função*/
+ 
+ // programa
+ 
+#include <stdio.h>
+
+int soma(int a, int b)
+{
+return a + b;
+}
+
+int main()
+{   int x, y, z;
+int (*p)(int, int);
+
+printf("Digite dois numeros para a soma: ");
+scanf("%d %d", &x, &y);
+
+p=soma; // ponteiro recebe endereço que aponta para função
+z=p(x,y);
+printf("Soma = %d\n", z);
+
+return 0;
+}
